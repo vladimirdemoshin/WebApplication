@@ -1,0 +1,47 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>WebApp</title>
+</head>
+<body>
+    <div>
+        <h3>Send Message</h3>
+        <form method="post" action="/Home/Send">
+            <table>
+                <tr>
+                    <td><p>Type your message</p></td>
+                    <td><input type="text" name="Text" /> </td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Send" /> </td>
+                    <td></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <div>
+        <h3>Messages</h3>
+        <table>
+            <tr>
+                <td><p>Text of the message</p></td>
+                <td><p>Receiving time</p></td>
+                <td></td>
+            </tr>
+            @foreach (var m in ViewBag.Messages)
+            {
+                <tr>
+                    <td><p>@m.Text</p></td>
+                    <td><p>@m.ReceivingTime</p></td>
+                </tr>
+            }
+        </table>
+    </div>
+
+</body>
+</html>
